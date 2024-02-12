@@ -78,7 +78,17 @@ h6 {
   font-weight: 400;
 }
 /*--------------------*/
+.app{
+	padding: 100px;
+	display: flex;
+}
 
+
+
+
+.friend{
+
+}
 .red {
   color: red;
 }
@@ -89,8 +99,7 @@ h6 {
 
 .button {
   background-color: #e98742;
-  height: 35px;
-  width: 80px;
+  padding: 10px 20px;
   font-size: 17px;
   font-weight: bold;
   border-radius: 12px;

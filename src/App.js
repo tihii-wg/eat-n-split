@@ -23,11 +23,13 @@ const initialFriends = [
 ];
 function App() {
   return (
-    <div className="a  pp">
+    <div className="app">
       <div className="sidebar">
         <FriendsList friensList={initialFriends} />
         <AddFriendsForm />
+        <Button>Add friend</Button>
       </div>
+      <FormSplitBill />
     </div>
   );
 }
@@ -36,7 +38,7 @@ export default App;
 
 function FriendsList({ friensList }) {
   return (
-    <ul>
+    <ul className="friends">
       {friensList.map((friend) => (
         <Friend friend={friend} />
       ))}
@@ -46,7 +48,7 @@ function FriendsList({ friensList }) {
 
 function Friend({ friend }) {
   return (
-    <li>
+    <li className="friend">
       <img src={friend.image} alt={friend.name} />
       <h3>{friend.name}</h3>
       {friend.balance < 0 && (
@@ -75,8 +77,28 @@ function AddFriendsForm() {
       <label>Friend name</label>
       <input type="text"></input>
       <label>Image URL</label>
-		  <input type="text"></input>
-		  <Button>Add</Button>
+      <input type="text"></input>
+      <Button>Add</Button>
+    </form>
+  );
+}
+
+function FormSplitBill() {
+  return (
+    <form className="form-split-bill">
+      <h3>SPLIT A BILL WITH NAME</h3>
+      <label>Bill value</label>
+      <input type="text"></input>
+      <label>You expense</label>
+      <input type="text"></input>
+      <label>Names expense</label>
+      <input type="text"></input>
+      <label>Who is paying the bill&</label>
+      <select>
+        <option>yuo</option>
+        <option>name</option>
+      </select>
+      <Button>Split Bill</Button>
     </form>
   );
 }
