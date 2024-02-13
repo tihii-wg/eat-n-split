@@ -78,16 +78,62 @@ h6 {
   font-weight: 400;
 }
 /*--------------------*/
-.app{
-	padding: 100px;
-	display: flex;
+
+
+body{
+	mask-size: 100%;
 }
 
+.app {
+  display: grid;
+  justify-content: center;
+  gap: 40px;
+  padding-top: 100px;
+  grid-template-columns: 370px 500px;
+}
 
+.friends{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding-bottom: 40px;
+}
+.friend {
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: 50px 220px 0px 90px;
+  grid-template-areas:
+    " i n n b"
+    " i p p b";
+}
 
+.friend img {
+  grid-area: i;
+  border-radius:50%;
+  justify-content: center;
+  align-items:center;
+}
 
-.friend{
+.friend h3 {
+  grid-area: n;
+  margin-top: 6px;
+  margin-left: 15px;
+  font-weight: bold;
 
+}
+
+.friend p {
+  grid-area: p;
+  margin-left: 15px;
+  font-weight: bold;
+
+}
+
+.friend button {
+  grid-area: b;
+  height: 40px;
+  justify-content: center;
+  margin:  4px 4px;
 }
 .red {
   color: red;
@@ -103,4 +149,15 @@ h6 {
   font-size: 17px;
   font-weight: bold;
   border-radius: 12px;
+}
+
+.form-split-bill{
+	background-color: #fbeac3;
+	border-radius:10px;
+}
+
+.add-friends-form{
+	background-color: #fbeac3;
+	border-radius:10px;
+
 }
