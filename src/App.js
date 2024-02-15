@@ -74,10 +74,14 @@ function Button({ children }) {
 function AddFriendsForm() {
   return (
     <form className="add-friends-form">
-      <label>Friend name</label>
-      <input type="text"></input>
-      <label>Image URL</label>
-      <input type="text"></input>
+      <div className="friend-input">
+        <label>Friend name</label>
+        <input type="text"></input>
+      </div>
+      <div className="url-input">
+        <label>Image URL</label>
+        <input type="text"></input>
+      </div>
       <Button>Add</Button>
     </form>
   );
@@ -87,17 +91,25 @@ function FormSplitBill() {
   return (
     <form className="form-split-bill">
       <h3>SPLIT A BILL WITH NAME</h3>
-      <label>Bill value</label>
-      <input type="text"></input>
-      <label>You expense</label>
-      <input type="text"></input>
-      <label>Names expense</label>
-      <input type="text"></input>
-      <label>Who is paying the bill&</label>
-      <select>
-        <option>yuo</option>
-        <option>name</option>
-      </select>
+      <div className="bill-value">
+        <label>Bill value</label>
+        <input type="text"></input>
+      </div>
+      <div className="you-expense">
+        <label>You expense</label>
+        <input type="text"></input>
+      </div>
+      <div className="names">
+        <label>Names expense</label>
+        <input type="text"></input>
+      </div>
+      <div className="who">
+        <label>Who is paying the bill&</label>
+        <select>
+          <option>You</option>
+          <option>name</option>
+        </select>
+      </div>
       <Button>Split Bill</Button>
     </form>
   );

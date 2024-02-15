@@ -79,24 +79,28 @@ h6 {
 }
 /*--------------------*/
 
-
-body{
-	mask-size: 100%;
+body {
+  mask-size: 100%;
 }
 
 .app {
   display: grid;
   justify-content: center;
+  align-items: start;
   gap: 40px;
   padding-top: 100px;
   grid-template-columns: 370px 500px;
 }
 
-.friends{
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	padding-bottom: 40px;
+.sidebar button {
+  margin-left: 240px;
+}
+
+.friends {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
 }
 .friend {
   display: grid;
@@ -109,9 +113,9 @@ body{
 
 .friend img {
   grid-area: i;
-  border-radius:50%;
+  border-radius: 50%;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 
 .friend h3 {
@@ -119,28 +123,19 @@ body{
   margin-top: 6px;
   margin-left: 15px;
   font-weight: bold;
-
 }
 
 .friend p {
   grid-area: p;
   margin-left: 15px;
   font-weight: bold;
-
 }
 
 .friend button {
   grid-area: b;
   height: 40px;
   justify-content: center;
-  margin:  4px 4px;
-}
-.red {
-  color: red;
-}
-
-.green {
-  color: green;
+  margin: 4px 4px;
 }
 
 .button {
@@ -151,13 +146,79 @@ body{
   border-radius: 12px;
 }
 
-.form-split-bill{
-	background-color: #fbeac3;
-	border-radius:10px;
+.add-friends-form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 20px;
+  font-size: 20px;
+  background-color: #fbeac3;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.add-friends-form button {
+  margin-left: 170px;
 }
 
-.add-friends-form{
-	background-color: #fbeac3;
-	border-radius:10px;
+.friend-input input {
+  margin-left: 70px;
+  height: 25px;
+}
 
+.url-input input {
+  margin-left: 76px;
+  height: 25px;
+}
+
+.form-split-bill {
+  display: flex;
+  flex-direction: column;
+  background-color: #fbeac3;
+  font-size: 18px;
+  border-radius: 10px;
+  gap: 20px;
+  padding: 40px;
+}
+
+.form-split-bill h3 {
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.bill-value input {
+  margin-left: 215px;
+  height: 30px;
+  width: 130px;
+}
+
+.you-expense input {
+  margin-left: 195px;
+  height: 30px;
+  width: 130px;
+}
+
+.names input {
+  margin-left: 174px;
+  height: 30px;
+  width: 130px;
+}
+
+.who select {
+  margin-left: 113px;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-split-bill button {
+  margin-left: 280px;
+}
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
