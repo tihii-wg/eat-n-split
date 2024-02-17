@@ -33,9 +33,7 @@ export function AddFriendsForm({
           }}
         ></input>
       </div>
-      <Button newFriendName={newFriendName} newImageUrl={newImageUrl}>
-        Add
-      </Button>
+      <Button>Add</Button>
     </form>
   );
 }

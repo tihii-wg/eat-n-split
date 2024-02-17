@@ -32,6 +32,10 @@ function App() {
   const [selectFriendOn, setSelectFriendOn] = useState(false);
   const [newFriendName, setNewFriendName] = useState("");
   const [newImageUrl, setNewImageUrl] = useState("http://i.pravatar.cc/48");
+  const [billValue, setBillValue] = useState("");
+  const [expense, setExpense] = useState("");
+  const [whoPaying, setWhoPaying] = useState("You");
+  const [friendName, setFriendname] = useState("");
 
   const addnewFriend = (name, image) => {
     let newFriend = {
@@ -41,25 +45,25 @@ function App() {
       balance: 0,
     };
     if (!name || !image) return;
-    setFriendList([...freindList, newFriend]);
+    setFriendList((freindList) => [...freindList, newFriend]);
     setNewFriendName("");
     setNewImageUrl("http://i.pravatar.cc/48");
+    setAddFriendOn((value) => !value);
   };
 
   const onAddFriendHandler = () => {
     setAddFriendOn((value) => !value);
   };
 
-  const onSelectFriendHandler = () => {
-    setSelectFriendOn((value) => !value);
-  };
+
 
   return (
     <div className="app">
       <div className="sidebar">
         <FriendsList
           friensList={freindList}
-          onSelectFriendHandler={onSelectFriendHandler}
+			 setSelectFriendOn={setSelectFriendOn}
+				  setFriendname={setFriendname}
         />
         {addFriendOn && (
           <AddFriendsForm
@@ -74,7 +78,17 @@ function App() {
           {addFriendOn ? "Close" : "Add friend"}
         </Button>
       </div>
-      {selectFriendOn && <FormSplitBill />}
+      {selectFriendOn && (
+        <FormSplitBill
+          billValue={billValue}
+          expense={expense}
+          setBillValue={setBillValue}
+          setExpense={setExpense}
+          whoPaying={whoPaying}
+          setWhoPaying={setWhoPaying}
+          friendName={friendName}
+        />
+      )}
     </div>
   );
 }

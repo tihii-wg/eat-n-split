@@ -1,10 +1,18 @@
 import { Friend } from "./Friend";
 
-export function FriendsList({ friensList, onSelectFriendHandler }) {
+export function FriendsList({
+  friensList,
+  setSelectFriendOn,
+  setFriendname,
+}) {
   return (
     <ul className="friends">
       {friensList.map((friend) => (
-        <Friend friend={friend} onSelectFriendHandler={onSelectFriendHandler} />
+        <Friend
+          friend={friend}
+          setSelectFriendOn={setSelectFriendOn}
+          setFriendname={setFriendname}
+        />
       ))}
     </ul>
   );
