@@ -35,6 +35,7 @@ function App() {
   const [expense, setExpense] = useState("");
   const [whoPaying, setWhoPaying] = useState("You");
   const [selectedFriend, setSelectedFriend] = useState(null);
+  const paydByFriend = billValue ? billValue - expense : "";
 
   const addnewFriend = (name, image) => {
     let newFriend = {
@@ -54,17 +55,26 @@ function App() {
     setAddFriendOn((value) => !value);
   };
 
-  const finalBalance = billValue - expense;
+  const setBalance = (value) => {
+    setFriendList((freindList) =>
+      freindList.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: selectedFriend.balance + value }
+          : friend
+      )
+    );
 
-  //  const setBalance = (id) => {
-  //    let friend = freindList.find((friend) => friend.id === id);
-  //    let balance = friend.balance - finalBalance;
-  //    setFriendList(freindList.map({ ...friend, balance }));
-  //  };
+    setSelectedFriend(null);
+  };
 
   function onSelectFriendHandler(friend) {
-    setSelectedFriend(selectedFriend ? null : friend);
-    console.log(selectedFriend);
+    setSelectedFriend((selectedFriend) =>
+      selectedFriend?.id === friend.id ? null : friend
+    );
+    setAddFriendOn(false);
+    setBillValue("");
+    setExpense("");
+    setWhoPaying("You");
   }
 
   return (
@@ -100,6 +110,8 @@ function App() {
           whoPaying={whoPaying}
           setWhoPaying={setWhoPaying}
           selectedFriend={selectedFriend}
+          setBalance={setBalance}
+          paydByFriend={paydByFriend}
         />
       )}
     </div>

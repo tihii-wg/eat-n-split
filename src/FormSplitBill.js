@@ -8,21 +8,29 @@ export function FormSplitBill({
   whoPaying,
   setWhoPaying,
   selectedFriend,
+  setBalance,
+  paydByFriend,
 }) {
   const setBillValueHandlel = (e) => {
-    setBillValue(e.target.value);
+    setBillValue(Number(e.target.value));
   };
 
   const setExpenseHandler = (e) => {
-    setExpense(e.target.value);
+    setExpense(
+      Number(e.target.value) > billValue ? expense : Number(e.target.value)
+    );
   };
 
-  const submitHandler = (e, id) => {
+  const submitHandler = (e) => {
     e.preventDefault();
+    if (!billValue || !expense) return;
+    setBalance(whoPaying === "You" ? paydByFriend : expense);
   };
+
   return (
     <form className="form-split-bill" onSubmit={submitHandler}>
       <h3>Split a bill with {selectedFriend.name}</h3>
+
       <div className="bill-value">
         <label>Bill value</label>
         <input
@@ -31,6 +39,7 @@ export function FormSplitBill({
           onChange={setBillValueHandlel}
         ></input>
       </div>
+
       <div className="you-expense">
         <label>You expense</label>
         <input
@@ -39,14 +48,12 @@ export function FormSplitBill({
           onChange={setExpenseHandler}
         ></input>
       </div>
+
       <div className="names">
         <label>{selectedFriend.name} expense</label>
-        <input
-          type="text"
-          disabled="disabled"
-          value={selectedFriend.balance}
-        ></input>
+        <input type="text" disabled="disabled" value={paydByFriend}></input>
       </div>
+
       <div className="who">
         <label>Who is paying the bill</label>
         <select

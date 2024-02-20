@@ -121,6 +121,9 @@ body {
     " i p p b";
 }
 
+.friend-selected{
+	background-color: #fbeac3;
+}
 .friend img {
   grid-area: i;
   border-radius: 50%;
@@ -211,7 +214,7 @@ body {
 }
 
 .names input {
-  margin-left: 174px;
+  margin-left: 158px;
   height: 30px;
   width: 130px;
 }
