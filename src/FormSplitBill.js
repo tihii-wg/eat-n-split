@@ -24,7 +24,7 @@ export function FormSplitBill({
   const submitHandler = (e) => {
     e.preventDefault();
     if (!billValue || !expense) return;
-    setBalance(whoPaying === "You" ? paydByFriend : expense);
+    setBalance(whoPaying === "You" ? paydByFriend : -expense);
   };
 
   return (

@@ -7,24 +7,24 @@ import { FormSplitBill } from "./FormSplitBill";
 import { Button } from "./Button";
 
 const initialFriends = [
-  {
-    id: v1(),
-    name: "Clark",
-    image: "http://i.pravatar.cc/48?u=118836",
-    balance: -7,
-  },
-  {
-    id: v1(),
-    name: "Sarah",
-    image: "http://i.pravatar.cc/48?u=933372",
-    balance: 20,
-  },
-  {
-    id: v1(),
-    name: "Anthony",
-    image: "http://i.pravatar.cc/48?u=499476",
-    balance: 0,
-  },
+//  {
+//    id: v1(),
+//    name: "Clark",
+//    image: "http://i.pravatar.cc/48?u=118836",
+//    balance: -7,
+//  },
+//  {
+//    id: v1(),
+//    name: "Sarah",
+//    image: "http://i.pravatar.cc/48?u=933372",
+//    balance: 20,
+//  },
+//  {
+//    id: v1(),
+//    name: "Anthony",
+//    image: "http://i.pravatar.cc/48?u=499476",
+//    balance: 0,
+//  },
 ];
 function App() {
   const [freindList, setFriendList] = useState(initialFriends);
