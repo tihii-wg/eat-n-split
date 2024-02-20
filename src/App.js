@@ -29,13 +29,12 @@ const initialFriends = [
 function App() {
   const [freindList, setFriendList] = useState(initialFriends);
   const [addFriendOn, setAddFriendOn] = useState(false);
-  const [selectFriendOn, setSelectFriendOn] = useState(false);
   const [newFriendName, setNewFriendName] = useState("");
   const [newImageUrl, setNewImageUrl] = useState("http://i.pravatar.cc/48");
   const [billValue, setBillValue] = useState("");
   const [expense, setExpense] = useState("");
   const [whoPaying, setWhoPaying] = useState("You");
-  const [friendName, setFriendname] = useState("");
+  const [selectedFriend, setSelectedFriend] = useState(null);
 
   const addnewFriend = (name, image) => {
     let newFriend = {
@@ -55,16 +54,28 @@ function App() {
     setAddFriendOn((value) => !value);
   };
 
+  const finalBalance = billValue - expense;
 
+  //  const setBalance = (id) => {
+  //    let friend = freindList.find((friend) => friend.id === id);
+  //    let balance = friend.balance - finalBalance;
+  //    setFriendList(freindList.map({ ...friend, balance }));
+  //  };
+
+  function onSelectFriendHandler(friend) {
+    setSelectedFriend(selectedFriend ? null : friend);
+    console.log(selectedFriend);
+  }
 
   return (
     <div className="app">
       <div className="sidebar">
         <FriendsList
-          friensList={freindList}
-			 setSelectFriendOn={setSelectFriendOn}
-				  setFriendname={setFriendname}
+          friendsList={freindList}
+          onSelectFriendHandler={onSelectFriendHandler}
+          selectedFriend={selectedFriend}
         />
+
         {addFriendOn && (
           <AddFriendsForm
             newFriendName={newFriendName}
@@ -74,11 +85,13 @@ function App() {
             addnewFriend={addnewFriend}
           />
         )}
+
         <Button onClickHandler={onAddFriendHandler}>
           {addFriendOn ? "Close" : "Add friend"}
         </Button>
       </div>
-      {selectFriendOn && (
+
+      {selectedFriend && (
         <FormSplitBill
           billValue={billValue}
           expense={expense}
@@ -86,7 +99,7 @@ function App() {
           setExpense={setExpense}
           whoPaying={whoPaying}
           setWhoPaying={setWhoPaying}
-          friendName={friendName}
+          selectedFriend={selectedFriend}
         />
       )}
     </div>

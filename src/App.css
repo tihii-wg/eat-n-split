@@ -99,13 +99,23 @@ body {
 .friends {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   padding-bottom: 40px;
 }
+.friends :hover {
+  background-color: #fbeac3;
+  border-radius: 10px;
+}
+
+.friends button:hover{
+	background-color:  #e98742;
+}
+
 .friend {
   display: grid;
+  padding: 10px;
   font-size: 15px;
-  grid-template-columns: 50px 220px 0px 90px;
+  grid-template-columns: 50px 210px 0px 90px;
   grid-template-areas:
     " i n n b"
     " i p p b";
@@ -163,11 +173,13 @@ body {
 .friend-input input {
   margin-left: 70px;
   height: 25px;
+  font-weight: bold;
 }
 
 .url-input input {
   margin-left: 76px;
   height: 25px;
+  font-weight: bold;
 }
 
 .form-split-bill {
@@ -205,7 +217,7 @@ body {
 }
 
 .who select {
-  margin-left: 113px;
+  margin-left: 127px;
   height: 30px;
   width: 130px;
   text-align: center;

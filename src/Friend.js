@@ -1,12 +1,10 @@
 import { Button } from "./Button";
 
-export function Friend({ friend, setSelectFriendOn, setFriendname }) {
+export function Friend({ friend, onSelectFriendHandler, selectedFriend }) {
 
 	
-  const onSelectFriendHandler = () => {
-    setFriendname(friend.name);
-    setSelectFriendOn((value) => !value);
-  };
+  const isSelected = selectedFriend?.id === friend.id;
+
   return (
     <li className="friend">
       <img src={friend.image} alt={friend.name} />
@@ -22,8 +20,8 @@ export function Friend({ friend, setSelectFriendOn, setFriendname }) {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
-      <Button onClickHandler={onSelectFriendHandler} name={friend.name}>
-        Select
+      <Button onClickHandler={() => onSelectFriendHandler(friend)}>
+        {isSelected ? "Close" : "Select"}
       </Button>
     </li>
   );
