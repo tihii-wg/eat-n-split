@@ -11,6 +11,8 @@ export function FormSplitBill({
   setBalance,
   paydByFriend,
 }) {
+
+	
   const setBillValueHandlel = (e) => {
     setBillValue(Number(e.target.value));
   };
